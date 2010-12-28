@@ -1,18 +1,14 @@
-*.dbmdl
-*.user
+
+/build
+AssemblyInfo.cs
+
+# Standard VS.NET and ReSharper Foo
+src/*/obj
+src/*/bin
+*.csproj.user
+*ReSharper.user
+_ReSharper*
+*resharper*
 *.suo
 *.cache
-*.log
-*.log.*
-obj
-bin
-ErrorLogs
-Packages
-*~
-*.swp
-_ReSharper*
-*.db
-*.orig
-*.rej
-*.vs10x
-CI
+* Thumbs.db
