@@ -1,4 +1,1 @@
-
-More information about facilities
-can be found at http://www.castleproject.org/
-
+The current version of the Castle Stack includes release version compiled for the 4.0 runtime. This project is a copy of the NHibernate Castle ByteCode provider that compiles to .NET 4.0 and the current Castle.Core.
