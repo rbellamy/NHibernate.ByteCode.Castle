@@ -74,9 +74,17 @@ namespace NHibernate.ByteCode.Castle
 			}
 			catch (TargetInvocationException tie)
 			{
-				// Propagate the inner exception so that the proxy throws the same exception as
-				// the real object would 
-				Exception_InternalPreserveStackTrace.Invoke(tie.InnerException, new Object[] { });
+				/* Propagate the inner exception so that the proxy throws the same exception as
+				 * the real object would.
+				 *
+				 * Also, if the Exception_InternalPreserveStackTrace method does not exist (it's an undocumented feature of the
+				 * internal framework that could vanish at any time) then don't use it. We are likely to lose the stack trace
+				 * but at least we will preserve the underlying exception type (which I think is the lesser of two evils).
+				 */
+				if(Exception_InternalPreserveStackTrace != null)
+				{
+					Exception_InternalPreserveStackTrace.Invoke(tie.InnerException, new Object[] { });
+				}
 				throw tie.InnerException;
 			}
 		}
